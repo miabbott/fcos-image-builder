@@ -5,7 +5,7 @@
 This is builds a version of Fedora CoreOS using the [ostree native container](https://fedoraproject.org/wiki/Changes/OstreeNativeContainer)
 features.
 
-The GitHub workflow generates a new container image weekly.
+The GitHub workflow generates a new container image weekly. (See https://github.com/jlebon/pet for inspiration)
 
 The customizations in the Containerfile provide a hacky systemd service + timer
 that will automatically upgrade a system to the new version of the container image
