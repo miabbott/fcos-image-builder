@@ -1,0 +1,11 @@
+[Unit]
+Description=Hacky rpm-ostree upgrade && reboot
+ConditionPathExists=/var/lib/fcos_update_available.stamp
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=rpm-ostree upgrade --trigger-automatic-update-policy
+ExecStart=rm /var/lib/fcos_update_available.stamp
+ExecStartPost=systemctl reboot
+[Install]
+WantedBy=multi-user.target

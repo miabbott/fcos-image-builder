@@ -1,0 +1,10 @@
+[Unit]
+Description=Hacky rpm-ostree upgrade && reboot trigger
+ConditionPathExists=/run/ostree-booted
+
+[Timer]
+OnBootSec=1h
+OnUnitInactiveSec=1d
+
+[Install]
+WantedBy=timers.target
