@@ -1,0 +1,24 @@
+variant: fcos
+version: 1.4.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+systemd:
+  units:
+    - name: zincati.service
+      enabled: false
+    - name: fcos-rebase.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Rebase FCOS to Container Image
+        ConditionPathExists=!/var/lib/fcos-rebase.stamp
+        [Service]
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=rpm-ostree rebase --bypass-driver --experimental ostree-unverified-registry:quay.io/miabbott/fcos-image-builder:latest
+        ExecStart=/bin/touch /var/lib/fcos-rebase.stamp
+        ExecStartPost=systemctl reboot
+        [Install]
+        WantedBy=multi-user.target
