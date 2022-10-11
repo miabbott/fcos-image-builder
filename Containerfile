@@ -1,4 +1,4 @@
-# Last built from commit: 4f39ee28a7b0e38d654632a482f3dc96e688953c
+# Last built from commit: 3a1049c64d1aca416d0c8f860827b718407fa15f
 FROM quay.io/fedora/fedora-coreos:stable
 ADD rpm-ostree-upgrade-reboot.service /etc/systemd/system/rpm-ostree-upgrade-reboot.service
 ADD rpm-ostree-upgrade-reboot.timer /etc/systemd/system/rpm-ostree-upgrade-reboot.timer
