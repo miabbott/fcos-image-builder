@@ -13,7 +13,11 @@ systemd:
       contents: |
         [Unit]
         Description=Rebase FCOS to Container Image
+        # This should only run if the system has booted for the first time, but
+        # add some additional guarantee via the stamp.
         ConditionPathExists=!/var/lib/fcos-rebase.stamp
+        ConditionFirstBoot=true
+        Before=first-boot-complete.target
         [Service]
         Type=oneshot
         RemainAfterExit=yes
