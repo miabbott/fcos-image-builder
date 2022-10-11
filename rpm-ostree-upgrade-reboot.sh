@@ -13,5 +13,5 @@ if [ "${installed_digest}" == "${remote_digest}" ]; then
 fi
 
 echo "Found an updated digest for ${IMAGE}"
-rpm-ostree upgrade --trigger-automatic-update-policy
+rpm-ostree upgrade --bypass-driver
 systemctl reboot
