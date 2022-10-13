@@ -1,7 +1,0 @@
-[Unit]
-Description=Hacky rpm-ostree upgrade && reboot
-# We should only run this upgrade service if the system has been rebased
-ConditionPathExists=/var/lib/fcos-rebase.stamp
-[Service]
-Type=simple
-ExecStart=/usr/bin/rpm-ostree-upgrade-reboot.sh
