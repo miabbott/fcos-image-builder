@@ -1,4 +1,4 @@
-# Last built from commit: a17ad6627e1d036f9ebc69189a5d3bf1ac4da49a
+# Last built from commit: c9cc762fe0475a0d5addf625702d0c74018e798d
 FROM quay.io/fedora/fedora-coreos:stable
 COPY usr/bin /usr/bin
 COPY etc /etc
