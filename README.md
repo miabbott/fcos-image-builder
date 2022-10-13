@@ -7,11 +7,11 @@ features.
 
 The GitHub workflow generates a new container image weekly. (See <https://github.com/jlebon/pet> for inspiration)
 
-The customizations in the Containerfile provide a hacky systemd service + timer
-that will automatically upgrade a system to the new version of the container image
-if it is available.
+The customizations in the Containerfile enable the `rpm-ostreed-automatic.timer` which will cause the system to automatically update when a new container image is available.
+The reboot logic is handled by a custom service that fires after the completion of the `ostree-finalize-staged.service`.
+Currently there is no protection for any workloads running on the system, so the reboot could be harmful.
 
-## Intialization
+## Initialization
 
 This assumes you have booted a vanilla Fedora CoreOS image using the provided Butane -> Ignition config to disable `zincati` and rebase to the layered image.
 
