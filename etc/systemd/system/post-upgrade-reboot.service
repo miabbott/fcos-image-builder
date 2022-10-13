@@ -1,0 +1,11 @@
+[Unit]
+Description=Reboot after ostree-finalize-staged.service
+# This is ordered after the finalization stage, rather than the
+# rpm-ostreed-automatic.service, to avoid firing this service before the
+# new deployment is written.
+After=ostree-finalize-staged.service
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/post-upgrade-reboot.sh
+[Install]
+WantedBy=ostree-finalize-staged.service
