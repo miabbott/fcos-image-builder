@@ -6,7 +6,7 @@ This is builds a version of Fedora CoreOS using the [ostree native container](ht
 
 The GitHub workflow generates a new container image weekly. (See <https://github.com/jlebon/pet> for inspiration)
 
-The customizations in the Containerfile enable the install of the [osbuild-composer]([https://)](https://www.osbuild.org/guides/) service and CLI.  In addition, there are systemd services that enable the automatic upgrade and reboot of the running system.
+The customizations in the Containerfile enable the install of the [osbuild-composer](https://www.osbuild.org/guides/) service and CLI.  In addition, there are systemd services that enable the automatic upgrade and reboot of the running system.
 
 **WARNING** This example is not safe for production as the system could automatically reboot while a critical workload is running.
 
@@ -23,7 +23,7 @@ $
 
 ## Automatic Upgrades & Reboots
 
-Once the system has been rebased to the container image (<quay.io/miabbott/fcos-image-builder:latest>), the `rpm-ostreed-automatic.timer` will fire regularly and trigger `rpm-ostree upgrade` to run.
+Once the system has been rebased to the container image ([quay.io/miabbott/fcos-image-builder:latest](https://quay.io/repository/miabbott/fcos-image-builder)), the `rpm-ostreed-automatic.timer` will fire regularly and trigger `rpm-ostree upgrade` to run.
 
 If an updated container image is available, the deployment will be staged via `ostree-finalize-staged.service`. On completion of that service, the `post-upgrade-reboot.service` will fire and check if there is an unbooted deployment (which should be the case after an upgrade).  If there is an unbooted deployment, the system reboots.
 
