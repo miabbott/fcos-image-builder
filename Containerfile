@@ -7,4 +7,5 @@ RUN rpm-ostree install osbuild-composer composer-cli && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     systemctl enable osbuild-composer.socket && \
     systemctl enable rpm-ostreed-automatic.timer && \
+    systemctl enable post-upgrade-reboot.service && \
     ostree container commit
