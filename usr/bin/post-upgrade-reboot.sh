@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -xeou pipefail
+set -eou pipefail
 
 # Check if the first deployment is booted; if false, should indicate that
 # an update was staged by `rpm-ostreed-automatic.service`
