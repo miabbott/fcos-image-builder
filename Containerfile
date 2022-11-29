@@ -8,4 +8,5 @@ RUN rpm-ostree install osbuild-composer composer-cli && \
     systemctl enable osbuild-composer.socket && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable post-upgrade-reboot.service && \
+    rm -rf /var/lib/unbound && \
     ostree container commit
