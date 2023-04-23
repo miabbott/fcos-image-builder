@@ -1,6 +1,6 @@
 # Fedora CoreOS with Image Builder layer
 
-[![quay.io repository](https://img.shields.io/badge/updated-2023--04--16-green)](https://quay.io/repository/miabbott/fcos-image-builder)
+[![quay.io repository](https://img.shields.io/badge/updated-2023--04--23-green)](https://quay.io/repository/miabbott/fcos-image-builder)
 
 This is builds a version of Fedora CoreOS using the [ostree native container](https://fedoraproject.org/wiki/Changes/OstreeNativeContainer) features.
 
